@@ -64,5 +64,7 @@ if [ ! -d "$BUILD_DIR/.vertx" ]; then
   echo "installed vert.x"
 fi
 
+echo PATH=$PATH
+
 
 logger -p user.notice -t "slugc[$$]" "language_pack_java java_compile_end $LOGGER_FLAGS"
