@@ -49,7 +49,7 @@ fi
 
 VERTX_URL="http://vert-x.github.io/vertx-downloads/downloads/vert.x-1.3.1.final.tar.gz"
 
-echoCACHE_DIR=$CACHE_DIR
+echo "CACHE_DIR=$CACHE_DIR"
 
 if [ -d "$CACHE_DIR/.vertx" ]; then
   echo -n "copying vertx to app instead of downloading"
@@ -67,7 +67,7 @@ if [ ! -d "$BUILD_DIR/.vertx" ]; then
   echo "installed vert.x into $CACHE_DIR"
 fi
 
-echo PATH=$PATH
+echo "PATH=$PATH"
 
 
 logger -p user.notice -t "slugc[$$]" "language_pack_java java_compile_end $LOGGER_FLAGS"
