@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
 
-echo "running release script"
-
 BUILD_DIR=$1
-
-echo "PATH=$PATH"
 
 cat <<EOF
 ---
@@ -15,6 +11,4 @@ config_vars:
   MAVEN_OPTS: -Xmx384m -Xss512k -XX:+UseCompressedOops 
 addons:
   heroku-postgresql:dev
-
 EOF
-
