@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # bin/use <build-dir>
 
+echo "running detect script"
+
 echo "app:"
 ls -l /app
 
