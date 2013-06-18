@@ -64,7 +64,8 @@ if [ ! -d "$BUILD_DIR/.vertx" ]; then
   ls -la
   mv vert* .vertx
   cp -r .vertx $CACHE_DIR/.vertx
-  echo "installed vert.x into $CACHE_DIR"
+  cp -r "$CACHE_DIR/.vertx" $BUILD_DIR
+  echo "installed vert.x into CACHE_DIR=$CACHE_DIR and copied into BUILD_DIR=$BUILD_DIR"
 fi
 
 echo "PATH=$PATH"
