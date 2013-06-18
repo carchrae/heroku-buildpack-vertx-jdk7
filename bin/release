@@ -15,6 +15,5 @@ config_vars:
 addons:
   heroku-postgresql:dev
 
-echo PATH=$PATH
 EOF
 
