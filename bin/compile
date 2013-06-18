@@ -70,5 +70,6 @@ if [ ! -d "$BUILD_DIR/.vertx" ]; then
   ls -la $BUILD_DIR
 fi
 
+ls -laR $BUILD_DIR
 
 logger -p user.notice -t "slugc[$$]" "language_pack_java java_compile_end $LOGGER_FLAGS"
