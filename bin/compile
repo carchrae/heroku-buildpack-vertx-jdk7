@@ -63,12 +63,12 @@ if [ ! -d "$BUILD_DIR/.vertx" ]; then
   curl --max-time 320 --location $VERTX_URL | tar xz
   ls -la
   mv vert* .vertx
+  ls -la
   cp -r .vertx $CACHE_DIR/.vertx
   cp -r "$CACHE_DIR/.vertx" $BUILD_DIR
   echo "installed vert.x into CACHE_DIR=$CACHE_DIR and copied into BUILD_DIR=$BUILD_DIR"
+  ls -la $BUILD_DIR
 fi
-
-echo "PATH=$PATH"
 
 
 logger -p user.notice -t "slugc[$$]" "language_pack_java java_compile_end $LOGGER_FLAGS"
