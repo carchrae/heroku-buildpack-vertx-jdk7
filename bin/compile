@@ -63,6 +63,8 @@ if [ ! -d "$BUILD_DIR/.vertx" ]; then
   curl --max-time 320 --location $VERTX_URL | tar xz
   ls -la
   mv vert* .vertx
+  rm -r .vertx/examples
+  rm -r .vertx/api-docs
   ls -la
   cp -r .vertx $CACHE_DIR/.vertx
   cp -r "$CACHE_DIR/.vertx" $BUILD_DIR
