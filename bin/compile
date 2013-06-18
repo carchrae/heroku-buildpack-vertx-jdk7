@@ -4,6 +4,8 @@
 # fail fast
 set -e
 
+echo "running compile"
+
 logger -p user.notice -t "slugc[$$]" "language_pack_java java_compile_start"
 
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
@@ -74,6 +76,9 @@ if [ ! -d "$BUILD_DIR/.vertx" ]; then
   ls -la $BUILD_DIR
 fi
 
-ls -laR $BUILD_DIR
+
+echo "finishing compile"
 
 logger -p user.notice -t "slugc[$$]" "language_pack_java java_compile_end $LOGGER_FLAGS"
+
+echo "finished compile"
