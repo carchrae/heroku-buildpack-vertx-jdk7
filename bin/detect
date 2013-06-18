@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
 # bin/use <build-dir>
 
-pwd
-ls -l
 
 # Warn if no Procfile is present
-if [ ! -f Procfile ]; then
+if [ ! -f '/app/Procfile' ]; then
   echo "-----> No Procfile found. Create a Procfile in the root of your app folder that calls vertx like so:"
   echo "       web: vertx run YourServer.java"
 else
-  echo "Vert.x" && exit 0
+  echo "Vert.x app detected\nProcfile:\n" && cat '/app/Procfile' && exit 0
 fi
 
