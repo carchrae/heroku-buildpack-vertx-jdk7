@@ -3,6 +3,9 @@
 
 BUILD_DIR=$1
 
+echo PATH=$PATH
+pwd
+
 cat <<EOF
 ---
 config_vars:
@@ -11,4 +14,7 @@ config_vars:
   MAVEN_OPTS: -Xmx384m -Xss512k -XX:+UseCompressedOops 
 addons:
   heroku-postgresql:dev
+
+echo PATH=$PATH
 EOF
+
