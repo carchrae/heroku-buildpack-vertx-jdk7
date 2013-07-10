@@ -3,7 +3,7 @@ Heroku buildpack: Vert.x
 
 This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpack) for [Vert.x](http://vertx.io/) apps.  
 
-It was forked from blalor but I've changed it quite a bit.  This version uses vertx.1.2.3 and also uses the
+It was forked from blalor but I've changed it quite a bit.  This version uses vert.x.1.3.1.final  and also uses the
 'heroku way' of including JDK7 (taken from current buildpacks).  I also disabled the detect feature that inflicts 
 a particular naming strategy on your app.  You now need a Procfile that runs vertx how you want to.
 
