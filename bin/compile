@@ -66,7 +66,7 @@ fi
 
 if [ ! -d $VERTX_BUILD_DIR ]; then
   #clean out old versions
-  rm -r "$CACHE_DIR/vertx*"
+  rm -rf "$CACHE_DIR/vertx*"
   cd $BUILD_DIR
   echo "-----> Installing Vert.x build (to .vertx)..... from $VERTX_URL"
   curl --max-time 320 --location $VERTX_URL | tar xz
