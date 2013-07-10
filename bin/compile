@@ -52,14 +52,14 @@ if [ -f ${BUILD_DIR}/system.properties ]; then
 fi
 
 
-VERTX_URL="http://vert-x.github.io/vertx-downloads/downloads/vert.x-$VERSION.tar.gz"
-VERTX_CACHED="$CACHE_DIR/vertx-$VERSION"
+VERTX_URL="http://vert-x.github.io/vertx-downloads/downloads/vert.x-$VERTX_VERSION.tar.gz"
+VERTX_CACHED="$CACHE_DIR/vertx-$VERTX_VERSION"
 VERTX_BUILD_DIR="$BUILD_DIR/.vertx"
 
 echo "CACHE_DIR=$CACHE_DIR"
 
 if [ -d $VERTX_CACHED ]; then
-  echo -n "copying vertx to app instead of downloading"
+  echo -n "copying vertx $VERTX_VERSION to app instead of downloading"
   cp -r $VERTX_CACHED $VERTX_BUILD_DIR
   echo "done"
 fi
@@ -68,7 +68,7 @@ if [ ! -d $VERTX_BUILD_DIR ]; then
   #clean out old versions
   rm -rf "$CACHE_DIR/vertx*"
   cd $BUILD_DIR
-  echo "-----> Installing Vert.x build (to .vertx)..... from $VERTX_URL"
+  echo "-----> Installing Vert.x $VERTX_VERSION build (to .vertx)..... from $VERTX_URL"
   curl --max-time 320 --location $VERTX_URL | tar xz
   ls -la
   mv vert* vertx
