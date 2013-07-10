@@ -23,6 +23,14 @@ or if you want to add it after you create an app
 You must create a Procfile that calls vertx, such as:
 
 Procfile:
+```
+    web: .vertx/bin/vertx run Main.java
+```
 
-    web: vertx run Main.java
+or to run a module based app:
+
+Procfile:
+```
+    web: .vertx/bin/vertx runmod app -repo vert-x.github.io  
+```
 
