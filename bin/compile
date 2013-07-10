@@ -8,6 +8,7 @@ echo "running compile"
 
 logger -p user.notice -t "slugc[$$]" "language_pack_java java_compile_start"
 
+VERTX_VERSION=1.3.1.final
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
 # parse args
 BUILD_DIR=$1
@@ -51,28 +52,32 @@ if [ -f ${BUILD_DIR}/system.properties ]; then
 fi
 
 
-VERTX_URL="http://vert-x.github.io/vertx-downloads/downloads/vert.x-1.3.1.final.tar.gz"
+VERTX_URL="http://vert-x.github.io/vertx-downloads/downloads/vert.x-$VERSION.tar.gz"
+VERTX_CACHED="$CACHE_DIR/vertx-$VERSION"
+VERTX_BUILD_DIR="$BUILD_DIR/.vertx"
 
 echo "CACHE_DIR=$CACHE_DIR"
 
-if [ -d "$CACHE_DIR/.vertx" ]; then
+if [ -d $VERTX_CACHED ]; then
   echo -n "copying vertx to app instead of downloading"
-  cp -r "$CACHE_DIR/.vertx" $BUILD_DIR
+  cp -r $VERTX_CACHED $VERTX_BUILD_DIR
   echo "done"
 fi
 
-if [ ! -d "$BUILD_DIR/.vertx" ]; then
+if [ ! -d $VERTX_BUILD_DIR ]; then
+  #clean out old versions
+  rm -r "$CACHE_DIR/vertx*"
   cd $BUILD_DIR
   echo "-----> Installing Vert.x build (to .vertx)..... from $VERTX_URL"
   curl --max-time 320 --location $VERTX_URL | tar xz
   ls -la
-  mv vert* .vertx
-  rm -r .vertx/examples
-  rm -r .vertx/api-docs
+  mv vert* vertx
+  rm -r vertx/examples
+  rm -r vertx/api-docs
   ls -la
-  cp -r .vertx $CACHE_DIR/.vertx
-  cp -r "$CACHE_DIR/.vertx" $BUILD_DIR
-  echo "installed vert.x into CACHE_DIR=$CACHE_DIR and copied into BUILD_DIR=$BUILD_DIR"
+  cp -r vertx $VERTX_CACHED
+  cp -r vertx $VERTX_BUILD_DIR
+  echo "installed vert.x into CACHE_DIR=$VERTX_CACHED and copied into BUILD_DIR=$VERTX_BUILD_DIR"
   ls -la $BUILD_DIR
 fi
 
